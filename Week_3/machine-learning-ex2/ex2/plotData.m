@@ -12,9 +12,12 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+% Find pass/fail indices in y which corresponds to pass/fail indices in X
+pos = find(y==1); neg = find(y==0);
 
-
-
+% Plot pass indices of X first, then plot fail indices of X
+plot(X(pos, 1), X(pos, 2), 'k+','LineWidth', 2, 'MarkerSize', 7);
+plot(X(neg, 1), X(neg, 2), 'ko', 'MarkerFaceColor', 'y', 'MarkerSize', 7);
 
 
 
