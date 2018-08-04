@@ -50,7 +50,7 @@ fprintf('\nTraining Linear SVM ...\n')
 
 % You should try to change the C value below and see how the decision
 % boundary varies (e.g., try C = 1000)
-C = 1;
+C = 100;
 model = svmTrain(X, y, C, @linearKernel, 1e-3, 20);
 visualizeBoundaryLinear(X, y, model);
 
@@ -113,12 +113,12 @@ pause;
 
 %% =============== Part 6: Visualizing Dataset 3 ================
 %  The following code will load the next dataset into your environment and 
-%  plot the data. 
+%  plot the data.
 %
 
 fprintf('Loading and Visualizing Data ...\n')
 
-% Load from ex6data3: 
+% Load from ex6data3:
 % You will have X, y in your environment
 load('ex6data3.mat');
 
@@ -134,7 +134,7 @@ pause;
 %  different values of C and sigma here.
 % 
 
-% Load from ex6data3: 
+% Load from ex6data3:
 % You will have X, y in your environment
 load('ex6data3.mat');
 
