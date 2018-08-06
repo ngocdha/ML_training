@@ -3,7 +3,7 @@ function word_indices = processEmail(email_contents)
 %returns a list of word_indices 
 %   word_indices = PROCESSEMAIL(email_contents) preprocesses 
 %   the body of an email and returns a list of indices of the 
-%   words contained in the email. 
+%   words contained in the email.
 %
 
 % Load Vocabulary
@@ -25,8 +25,8 @@ word_indices = [];
 email_contents = lower(email_contents);
 
 % Strip all HTML
-% Looks for any expression that starts with < and ends with > and replace
-% and does not have any < or > in the tag it with a space
+% Looks for any expression that starts with < and ends with > and does not
+% have any < or > in the tag and replace it with a space
 email_contents = regexprep(email_contents, '<[^<>]+>', ' ');
 
 % Handle Numbers
@@ -64,11 +64,11 @@ while ~isempty(email_contents)
     % Remove any non alphanumeric characters
     str = regexprep(str, '[^a-zA-Z0-9]', '');
 
-    % Stem the word 
+    % Stem the word
     % (the porterStemmer sometimes has issues, so we use a try catch block)
     try str = porterStemmer(strtrim(str)); 
     catch str = ''; continue;
-    end;
+    end
 
     % Skip the word if it is too short
     if length(str) < 1
@@ -96,15 +96,15 @@ while ~isempty(email_contents)
     % Note: You can use strcmp(str1, str2) to compare two strings (str1 and
     %       str2). It will return 1 only if the two strings are equivalent.
     %
-
-
-
-
-
-
-
-
-
+    
+for i = 1:length(vocabList)
+    str2 = vocabList{i};
+    if strcmp(str, str2) == 1
+        word_indices = [word_indices; i];
+    else
+        continue;
+    end
+end
 
     % =============================================================
 
