@@ -21,11 +21,19 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i = 1:size(X,1)
+    idx(i) = 1;
+    J_1 = sum((X(i,:) - centroids(1,:)).^2);
+    for ii = 1:K
+        J = sum((X(i,:) - centroids(ii,:)).^2);
+        if J < J_1
+            idx(i) = ii;
+            J_1 = J;
+        else
+            continue
+        end
+    end
+end
 
 % =============================================================
 
